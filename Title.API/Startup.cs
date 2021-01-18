@@ -33,7 +33,7 @@ namespace Title.API
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             }
             );
-
+//
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
