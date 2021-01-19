@@ -68,8 +68,8 @@ export const Titles = (props) => {
         <Card.Body>
           <InputGroup className="mb-3">
             <FormControl
-              placeholder="Recipient's username"
-              aria-label="Recipient's username"
+              placeholder="Title Name"
+              aria-label="Title Name"
               aria-describedby="basic-addon2"
               onChange={handleOChange}
             />
