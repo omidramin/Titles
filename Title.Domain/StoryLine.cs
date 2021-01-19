@@ -24,5 +24,6 @@ namespace Title.Domain
         [ForeignKey(nameof(TitleId))]
         [InverseProperty("StoryLines")]
         public virtual Title Title { get; set; }
+
     }
 }

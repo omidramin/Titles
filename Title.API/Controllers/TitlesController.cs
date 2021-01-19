@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Title.Presistence;
 using Title.Domain;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
+using Title.Application.Titles;
 
 namespace DatingApp.API.Controllers
 {
@@ -13,44 +15,30 @@ namespace DatingApp.API.Controllers
     [ApiController]
     public class TitlesController : ControllerBase
     {
-        private readonly TitlesContext _context;
-        public TitlesController(TitlesContext context)
+        private readonly IMediator _mediator;
+
+        public TitlesController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
-        // GET api/values
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Title.Domain.Title>>> Get()
-        {
-            var title = await _context.Titles.ToListAsync();
-            return Ok(title);
+        public async Task<ActionResult<List<Title.Domain.Title>>> List()
+        {      
+            return await _mediator.Send(new List.Query());
         }
 
-        // GET api/values/5
+        [HttpPut("{name}")]
+        public async Task<ActionResult<object>> Search(string title)
+        {
+            return await _mediator.Send(new Search.Query { Name = title });
+        }
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<Title.Domain.Title>> Get(int id)
+        public async Task<ActionResult<object>> Detail(int titleId)
         {
-             var title = await _context.Titles.FindAsync(id);
-            return Ok(title);
+            return await _mediator.Send(new Details.Query { TitleId = titleId });
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
