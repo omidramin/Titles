@@ -1,7 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
-
-import TitleDetailRow from "./TitleDetail-Row/TitleDetail-Row";
 import OverLay from "../../common/OverLay";
 
 const Detail = (props) => {
