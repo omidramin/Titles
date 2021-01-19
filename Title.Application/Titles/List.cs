@@ -12,7 +12,6 @@ namespace Title.Application.Titles
     {
         public class Query : IRequest<List<Domain.Title>>
         {
-            public string Name { get; set; }
 
         }
 
@@ -27,13 +26,6 @@ namespace Title.Application.Titles
 
             public async Task<List<Domain.Title>> Handle(Query request, CancellationToken cancellationToken)
             {
-
-                if (!string.IsNullOrEmpty(request.Name))
-                {
-                    var titles = await _context.Titles.Where(t => t.TitleName.Contains(request.Name)).ToListAsync();
-                    return titles;
-                }
-
                 var titlesLst = await _context.Titles.ToListAsync();
 
                 return titlesLst;
