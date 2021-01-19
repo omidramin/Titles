@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Collapse from "react-bootstrap/Collapse";
 import Card from "react-bootstrap/Card";
-import TitleListRow from "./TitleList-Row/TitleList-Row";
+import TitleListRow from "./TitleList-Row/TitleListRow";
 import { IoIosArrowForward, IoIosArrowDown } from "react-icons/io";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";

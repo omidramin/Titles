@@ -1,9 +1,7 @@
-import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from 'react-bootstrap/Tooltip';
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-
 import React from "react";
 
  const OverLay = (props) => {

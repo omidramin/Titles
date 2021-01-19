@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import OverLay from "../../common/OverLay";
 
@@ -18,11 +18,9 @@ const Detail = (props) => {
       setDetails(response.data);
       setLoading(false);
     });
-  }, []);
-  const get = () => {};
+  }, [props.titleId]);
 
   return (
-    // <div>
     <>
       {loading ? null : (
         <>
@@ -62,7 +60,6 @@ const Detail = (props) => {
         </>
       )}
     </>
-    // </div>
   );
 };
 export default Detail;
